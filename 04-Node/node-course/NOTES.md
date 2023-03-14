@@ -13,6 +13,7 @@ Table of Contents
 - [**Understanding npm: Node Package Manager**](#understanding-npm-node-package-manager)
   - [**Write your own module**](#write-your-own-module)
   - [**Manage third party packages with npm**](#manage-third-party-packages-with-npm)
+  - [**What is a package.json file?**](#what-is-a-packagejson-file)
 
 ***
 
@@ -111,6 +112,25 @@ We are able to access data in our module demo from another module or file.
 
 ## **Manage third party packages with npm**
 
-Node has something called a Node Package Manager, or NPM for short. Packages are one or more modules bundled together. One of the more popular packages is called Lodash. 
+Node has something called a Node Package Manager, or NPM for short. Packages are one or more modules bundled together. One of the more popular packages is called **Lodash**. To install type:
 
-Let's cover how we can install it, and then how we can make use of it. Let's go over to our console or terminal. And we'll install it using NPM. So let's type in "npm install lodash". And if we take a look in our directory, we can see a new folder was created, called "node_modules" and inside there, we'll see "lodash". The folder "lodash" itself has several JavaScript files that provide us with all of the functionality and features of Lodash. Now that we have it installed, let's create a file that we'll use to write our own code which will utilize Lodash. So I'll create the new file called "demo.js". Next, we'll use "require" just like we did before for our custom module, to bring in Lodash. And I'll set it in a variable called "_". And this is common practice with Lodash, so that we can easily access its functionality. And then I'll use "require", and specify "lodash". Notice that I didn't have to specify a location, since Node already knows the default location for its modules. Then let's use a "console.log", and then I'll use the "_.", and as we can see, there are many functions we have access to. A simple one could be "random". So let's select that, and let's try to get a random number between one and one hundred. If we were to do this with plain JavaScript, it would take several function calls to the math library. But with Lodash, we get that functionality built in. So let's save this, and give it a try. So I'll use "node", and specify "demo.js". And we got a value of 53 in our console. Let's try running it one more time. And once again, as you can see, we're getting a random value, as we specified, between one and one hundred. There are several different types of NPM packages, and some will work as command line interfaces. Let's take a look at one of those now, that's called Nodemon. First let's install it. But because it is a command line interface package, we'll need to install it with the "global" flag. That way, we get access to it regardless of what project we're in. So we'll append "-g" inside the install command. If we take a look at our "node_modules" folder, we can see that there was no installation of Nodemon. Once again, that is because it is installed globally, and not in our local "node_modules" directory. So to use it, we can type in "nodemon" instead of "node". What this allows us to do is automatically execute our "demo.js" anytime there's a change. So we don't have to keep typing in "node" to execute the new changes. So for example, instead of getting the range of one to one hundred in our random call, I'd like one to ten. I'll save it by hitting Control-S, and you can see Nodemon detects those changes, and automatically executes it. Now, what if we end up installing several third party packages, and we want to keep track of what we have installed and are dependent on in a list somewhere? That's where the "package.json" file comes in, so let's take a look at that next.
+```
+npm install lodash
+```
+
+Now that we have it installed, let's create a [file that we'll use to write our own code](node/Ex_Files_Learning_Node_js_2021_Q3/Exercise%20Files/02_02/demo.js) which will utilize Lodash to get get a random value between one and one hundred.
+
+There are several different types of NPM packages, and some will work as command line interfaces, like **Nodemon**. 
+
+First let's install Nodemon and if we take a look at our "node_modules" folder, we can see that there was no installation of Nodemon. That is because it is installed globally, and not in our local "node_modules" directory. So to use it, we can type in "nodemon" instead of "node" in the terminal: 
+
+```
+nodemon demo.js
+```
+
+What this allows us to do is automatically execute our "demo.js" anytime there's a change, so we don't have to keep typing in "node" to execute the new changes. So for example, instead of getting the range of one to one hundred in our random call, I'd like one to ten. I'll save it by hitting Control-S, and you can see Nodemon detects those changes, and automatically executes it. 
+
+
+## **What is a package.json file?**
+
+Now, what if we end up installing several third party packages, and we want to keep track of what we have installed and are dependent on in a list somewhere? That's where the "package.json" file comes in.
