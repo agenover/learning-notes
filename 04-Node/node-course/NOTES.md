@@ -14,6 +14,10 @@ Table of Contents
   - [**Write your own module**](#write-your-own-module)
   - [**Manage third party packages with npm**](#manage-third-party-packages-with-npm)
   - [**What is a package.json file?**](#what-is-a-packagejson-file)
+- [**Reading and Writing Files**](#reading-and-writing-files)
+  - [**Read from files**](#read-from-files)
+  - [**Access directories**](#access-directories)
+  - [**Write to a file**](#write-to-a-file)
 
 ***
 
@@ -134,3 +138,31 @@ What this allows us to do is automatically execute our "demo.js" anytime there's
 ## **What is a package.json file?**
 
 Now, what if we end up installing several third party packages, and we want to keep track of what we have installed and are dependent on in a list somewhere? That's where the "package.json" file comes in.
+
+We have our own project and our own custom files and third party packages from where we left off previously. But what if wanted to distribute our app or project or put it into a git repository? It wouldn't make sense to include all of the packages we depend on because they take up a lot of space and since there are hundreds, if not thousands, of files each package depends on, it takes a long time to transfer those. But then the developer, who just got our project, will have to manually install all of those packages. And, if your depending on a few dozen, it will take a lot of time to execute all of those npm install calls each time we download a new project or take in an update.
+
+To solve that, we can create a package.json file. Among other things, it stores a list of the packages you depend on in your project. That way, when using the npm command install, it will go through that list and install everything automatically. 
+
+To create a package.json file, let's go to our terminal and type in 
+
+```npm init```
+
+This will ask us several questions. You can customize this for your specific project when it comes time to production. You have generated a package.json file. As it is now, it just contains all of those defaults we were prompted to modify when we used npm init. It also was nice enough to look in our node modules folder and see what dependencies we have in there, automatically adding them to the dependencies list.
+
+Another shortcut you might want to know is if you're trying to create a package.json file quickly, you can use the command ```npm init --yes```, to create one with all of the defaults. Now that we have an understanding of how to work with modules and packages inside Node, let's take a look at using one of the more popular built-in node modules for reading and writing files.
+
+# **Reading and Writing Files**
+
+## **Read from files**
+
+There are two areas where heavy input/output takes place. Network and disc access. 
+
+- Disk Access:
+
+Let's start by creating a [new file](node/Ex_Files_Learning_Node_js_2021_Q3/Exercise%20Files/03_01/demo.js). Let's require in the file system and I'll call it fs for short. And as you can see, the library itself is also called fs. The next command we'll perform will be to read from the file but we don't have a file to read yet so let's create a [temporary JSON file](node/Ex_Files_Learning_Node_js_2021_Q3/Exercise%20Files/03_01/data.json) and put some data into it.
+
+The first thing we'll do is access the file system with a function called, 'read file' and let's pass in the location of our data JSON file. The second parameter since this is an asynchronous function will be our call back. So I could define a separate function like we did in our asynchronous video or I could provide an anonymous function and place it in the second parameter directly. The callback will pass an error and then the data that's read in. And so that's another way we can handle the call back. Another way yet would be to use an arrow function. And it's slightly more compact than the previous syntax. So we'll use that going forward. For now, let's go ahead and console log the data we get and see what happens. (typing) And then I'll use nodemon to execute our demo. As you can see we got some sort of output with a buffer at the start. That's not what we have inside our JSON. So what's going on? What's happening is we didn't specify the file format. And in order to read the JSON file and other documents we need to specify the UTF 8 format. So instead of the callback being the second parameter we'll push it over to the third parameter. And then we'll specify, as a string, UTF-8 as a second parameter. Let's save that and as you can see we're able to read in the JSON just fine. Another good to know is that we can actually access our JSON file with a require directly instead of using read file. Let's try that out now. So I'll go to line two and create a data variable set it to require and specify the path to data.json. Then let's console log data. (typing) I'll save that. And now you can see we're getting two objects in our console. One from the require and one from our read file. They look a bit different so let's see what those differences are. The first thing I'm going to do is try to access the property name from our require to see if it's a true object or just a string. So I'll go over to line four and type in dot name. If I save that we can see it's outputting just the name. And so we're able to access the property and therefore it is an object. Let's try to do the same for our read file. As you can see, it's undefined. Therefore it is just a string. So let's create a new variable inside our read file callback called data and set it to json.parse. And then I'll pass in data. So, essentially it's taking our data parameter converting it to JSON and then overriding it. And then we're able to access data.name. And if we look in our console we can see there are two names being displayed.
+
+## **Access directories**
+
+## **Write to a file**
