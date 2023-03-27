@@ -18,6 +18,17 @@ Table of Contents
   - [**Read from files**](#read-from-files)
   - [**Access directories**](#access-directories)
   - [**Write to a file**](#write-to-a-file)
+- [**Exploring Web Frameworks**](#exploring-web-frameworks)
+  - [**Node.js Frameworks**](#nodejs-frameworks)
+  - [**Express**](#express)
+  - [**Socket.io**](#socketio)
+- [**Building your Demo App Chat Client for the browser**](#building-your-demo-app-chat-client-for-the-browser)
+  - [**Static serving with Express**](#static-serving-with-express)
+  - [**Create your browser app**](#create-your-browser-app)
+  - [**Create a get message service**](#create-a-get-message-service)
+  - [**Create a post messages service**](#create-a-post-messages-service)
+  - [**Connect to Socket.io from the browser app**](#connect-to-socketio-from-the-browser-app)
+  - [**create your Socket.io event**](#create-your-socketio-event)
 
 ***
 
@@ -193,3 +204,47 @@ For example, if fs.writeFile() is called twice in a row, first to write the stri
 ```
  
  And this simply passes an error, in case there was an error. And I'll just use a console.log and I'll write in the console 'write finished' and then I'll pass in the error in case there was an error. So let's save that and try to run it again. And you can see that the write was finished and we're no longer getting a deprecation warning. Now that we have a good idea of working with the file system, let's take a look at some of the popular web frameworks for Node.
+
+ # **Exploring Web Frameworks**
+
+ ## **Node.js Frameworks**
+
+What is a framework? In its generic form a framework is an essential supporting structure of a building, vehicle, or object. In software, it's essentially the same thing. **It is a supporting structure that allows you to build on top of it.**
+
+When it comes to web, and we want to build large APIs, or maybe HTTP servers, we can leverage web frameworks, and there are several options we can look at. Each of these provide us with the structure and components you need to quickly make serving static files, like traditional websites, easy. Or we can put together a web API to interact in a web app.
+
+A web API is a service that allows us to get and save data to our server or back end, such as a web API that allows us to maybe create users, serve a list of users, etc.
+
+Now let's take a look at the different options we have for web frameworks for Node. We'll be looking at **Express**, which is a very traditional framework. It's tried and tested, and it's simple to use. The next framework we'll look at is called **Sails**. It has many sub-frameworks such as an ORM, or object relational mapper, which gives us database access and many other rich features. Then there is **Koa**, which is the most modern framework.
+
+## **Express**
+
+We'll head over to [expressjs.com](https://expressjs.com/). If we scroll down a bit, we can see it has support for web applications and web APIs. 
+
+But first, what is a web application? Is is something for the front end or something for the back end? When I think of apps, I think of things that run in your browser or mobile devices. But those apps often need to talk to a server. For example, to log users in or get a list of data to display, etc. One way to think of it is that a web app has some functionality on the front end and some on the back end. The app, as a whole, is distributed across both front and back end. Imagine Twitter without being able to get any tweets from its back end?
+
+**Express.js runs within Node and Node is something just for the back end. But it contributes to the app as a whole which will talk to the back end.** As mentioned before, there is a lot of community support and online documentation because Express.js has been around for such a long time.
+
+## **Socket.io**
+
+[Socket.io](https://socket.io/) enables real time, bidirectional, event based communication. Express on the other hand allows the client to send a request to the server, but the server cannot send request to the client and so it does not have bidirectional communication.
+
+Socket.io solves this, we can push notifications from the server to the client when an event happens, as well as other data.
+
+Socket.io has two parts, a client side library that runs on the browser, and a server side library for node.js. Both components have an API that's nearly identical. And just like node.js, it is event driven. 
+
+Now that we've had a brief intro into some of the most popular web frameworks for node, let's go ahead and create the demo application utilizing them. Let's look at that next.
+
+# **Building your Demo App Chat Client for the browser**
+
+## **Static serving with Express**
+
+## **Create your browser app**
+
+## **Create a get message service**
+
+## **Create a post messages service**
+
+## **Connect to Socket.io from the browser app**
+
+## **create your Socket.io event**
